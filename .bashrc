@@ -110,3 +110,6 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+alias fnd='find -type f|xargs grep -n --colour=auto'
+alias ifnd='find -type f|xargs grep -in --colour=auto'
+
