@@ -112,5 +112,6 @@ fi
 
 alias fnd='find . -type f -print0|xargs -0 grep -n --colour=always'
 alias ifnd='find . -type f -print0|xargs -0 grep -in --colour=always'
+alias npm-env='export PATH="`pwd`/node_modules/.bin:$PATH"'
 
 export LESS='-R'
