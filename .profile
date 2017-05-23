@@ -25,3 +25,13 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+
+# set PATH so it includes user's private Python bin if it exists
+if [ -d "$HOME/Library/Python/2.7/bin/" ] ; then
+    PATH="$HOME/Library/Python/2.7/bin/:$PATH"
+fi
+
+# set PATH so it includes user's private Python bin if it exists
+if [ -d "$HOME/Library/Python/3.5/bin/" ] ; then
+    PATH="$HOME/Library/Python/3.5/bin/:$PATH"
+fi

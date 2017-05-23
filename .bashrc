@@ -16,6 +16,8 @@ shopt -s histappend
 HISTSIZE=2000
 HISTFILESIZE=5000
 
+HISTTIMEFORMAT="%Y-%m-%d %T "
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -108,6 +110,10 @@ if ! shopt -oq posix; then
 	elif [ -f /etc/bash_completion ]; then
 		. /etc/bash_completion
 	fi
+fi
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
 fi
 
 alias fnd='find . -type f -print0|xargs -0 grep -n --colour=always'
