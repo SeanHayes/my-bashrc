@@ -35,3 +35,5 @@ fi
 if [ -d "$HOME/Library/Python/3.5/bin/" ] ; then
     PATH="$HOME/Library/Python/3.5/bin/:$PATH"
 fi
+
+export EDITOR=nano

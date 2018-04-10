@@ -1,0 +1,11 @@
+Installation:
+
+    cd ~
+    mkdir dev
+    cd dev/
+    git clone git@github.com:SeanHayes/my-bashrc.git
+    cd ~
+    # may need to run `rm .bashrc`, etc.
+    ln -s dev/my-bashrc/.bashrc .
+    ln -s dev/my-bashrc/.inputrc .
+    ln -s dev/my-bashrc/.profile .
