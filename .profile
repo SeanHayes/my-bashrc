@@ -16,24 +16,4 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private Python bin if it exists
-if [ -d "$HOME/Library/Python/2.7/bin/" ] ; then
-    PATH="$HOME/Library/Python/2.7/bin/:$PATH"
-fi
-
-# set PATH so it includes user's private Python bin if it exists
-if [ -d "$HOME/Library/Python/3.5/bin/" ] ; then
-    PATH="$HOME/Library/Python/3.5/bin/:$PATH"
-fi
-
-export EDITOR=nano
+gif-for-cli dev/anigif_enhanced-buzz-6405-1384786241-0.gif

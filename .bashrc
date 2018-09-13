@@ -13,10 +13,13 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=2000
-HISTFILESIZE=5000
+HISTSIZE=1000000
+HISTFILESIZE=1000000
 
 HISTTIMEFORMAT="%Y-%m-%d %T "
+
+# append history as commands are entered, to preserve history from crashed sessions
+PROMPT_COMMAND='history -a'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -119,5 +122,36 @@ fi
 alias fnd='find . -type f -print0|xargs -0 grep -n --colour=always'
 alias ifnd='find . -type f -print0|xargs -0 grep -in --colour=always'
 alias npm-env='export PATH="`pwd`/node_modules/.bin:$PATH"'
+agr(){
+    ag "$1" --files-with-matches | xargs -I {} sed -r -i '' -e "s/$1/$2/g" {}
+}
 
 export LESS='-R'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private Python bin if it exists
+if [ -d "$HOME/Library/Python/2.7/bin/" ] ; then
+    PATH="$HOME/Library/Python/2.7/bin/:$PATH"
+fi
+
+# set PATH so it includes user's private Python bin if it exists
+if [ -d "$HOME/Library/Python/3.5/bin/" ] ; then
+    PATH="$HOME/Library/Python/3.5/bin/:$PATH"
+fi
+
+export EDITOR=nano
+
