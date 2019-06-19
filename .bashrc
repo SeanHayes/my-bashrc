@@ -155,3 +155,9 @@ fi
 
 export EDITOR=nano
 
+# include .bashrc-includes/ if it exists
+if [ -d "$HOME/.bashrc-includes/" ]; then
+    for f in "$HOME/.bashrc-includes/*"; do
+    . $f
+    done
+fi

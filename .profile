@@ -16,4 +16,4 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-gif-for-cli dev/anigif_enhanced-buzz-6405-1384786241-0.gif
+# gif-for-cli dev/anigif_enhanced-buzz-6405-1384786241-0.gif
