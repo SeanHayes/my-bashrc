@@ -1,11 +1,18 @@
 Installation:
 
-    cd ~
-    mkdir dev
-    cd dev/
+    mkdir ~/dev
+    cd ~/dev/
     git clone git@github.com:SeanHayes/my-bashrc.git
-    cd ~
     # may need to run `rm .bashrc`, etc.
-    ln -s dev/my-bashrc/.bashrc .
-    ln -s dev/my-bashrc/.inputrc .
-    ln -s dev/my-bashrc/.profile .
+    ln -s ~/dev/my-bashrc/.bashrc ~/
+    ln -s ~/dev/my-bashrc/.inputrc ~/
+    ln -s ~/dev/my-bashrc/.profile ~/
+    bash ~/dev/my-bashrc/gitconfig
+
+    SUBLIME_USER_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
+    cd ~/dev/my-bashrc/sublime
+    for file in `find . -type f -name "*" | sed "s/^\.\///g"`
+    do
+        rm "$SUBLIME_USER_DIR/$file" || true
+        ln -s "~/dev/my-bashrc/sublime/$file" "$SUBLIME_USER_DIR/$file"
+    done
