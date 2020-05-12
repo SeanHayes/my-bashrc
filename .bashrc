@@ -153,6 +153,16 @@ if [ -d "$HOME/Library/Python/3.5/bin/" ] ; then
     PATH="$HOME/Library/Python/3.5/bin/:$PATH"
 fi
 
+# set PATH so it includes user's private Python bin if it exists
+if [ -d "$HOME/Library/Python/3.6/bin/" ] ; then
+    PATH="$HOME/Library/Python/3.6/bin/:$PATH"
+fi
+
+# set PATH so it includes user's private Python bin if it exists
+if [ -d "$HOME/Library/Python/3.7/bin/" ] ; then
+    PATH="$HOME/Library/Python/3.7/bin/:$PATH"
+fi
+
 export EDITOR=nano
 
 # include .bashrc-includes/ if it exists
