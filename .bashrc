@@ -144,26 +144,9 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # set PATH so it includes user's private Python bin if it exists
-if [ -d "$HOME/Library/Python/2.7/bin/" ] ; then
-    PATH="$HOME/Library/Python/2.7/bin/:$PATH"
-fi
-
-# set PATH so it includes user's private Python bin if it exists
-if [ -d "$HOME/Library/Python/3.5/bin/" ] ; then
-    PATH="$HOME/Library/Python/3.5/bin/:$PATH"
-fi
-
-# set PATH so it includes user's private Python bin if it exists
-if [ -d "$HOME/Library/Python/3.6/bin/" ] ; then
-    PATH="$HOME/Library/Python/3.6/bin/:$PATH"
-fi
-
-# set PATH so it includes user's private Python bin if it exists
-if [ -d "$HOME/Library/Python/3.7/bin/" ] ; then
-    PATH="$HOME/Library/Python/3.7/bin/:$PATH"
-fi
-
-export EDITOR=nano
+for FOLDER in `ls -F $HOME/Library/Python/ | grep "\/" `; do
+  PATH="$HOME/Library/Python/$FOLDER/bin/:$PATH"
+done
 
 # include .bashrc-includes/ if it exists
 if [ -d "$HOME/.bashrc-includes/" ]; then
@@ -171,3 +154,12 @@ if [ -d "$HOME/.bashrc-includes/" ]; then
     . $f
     done
 fi
+
+if [ -d "/usr/local/opt/qt/bin" ] ; then
+    PATH="/usr/local/opt/qt/bin:$PATH"
+fi
+if [ -d "/usr/local/opt/python@3.8/bin" ] ; then
+    PATH="/usr/local/opt/python@3.8/bin:$PATH"
+fi
+
+export EDITOR=nano
