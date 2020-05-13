@@ -11,8 +11,9 @@ Installation:
 
     SUBLIME_USER_DIR="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
     cd ~/dev/my-bashrc/sublime
+    IFS=$'\n'
     for file in `find . -type f -name "*" | sed "s/^\.\///g"`
     do
         rm "$SUBLIME_USER_DIR/$file" || true
-        ln -s "~/dev/my-bashrc/sublime/$file" "$SUBLIME_USER_DIR/$file"
+        cp "$HOME/dev/my-bashrc/sublime/$file" "$SUBLIME_USER_DIR/$file"
     done
