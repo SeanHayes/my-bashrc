@@ -145,7 +145,7 @@ fi
 
 # set PATH so it includes user's private Python bin if it exists
 for FOLDER in `ls -F $HOME/Library/Python/ | grep "\/" `; do
-  PATH="$HOME/Library/Python/$FOLDER/bin/:$PATH"
+  PATH="$HOME/Library/Python/${FOLDER%/}/bin/:$PATH"
 done
 
 # include .bashrc-includes/ if it exists
