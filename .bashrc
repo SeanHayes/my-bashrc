@@ -144,9 +144,11 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 # set PATH so it includes user's private Python bin if it exists
-for FOLDER in `ls -F $HOME/Library/Python/ | grep "\/" `; do
-  PATH="$HOME/Library/Python/${FOLDER%/}/bin/:$PATH"
-done
+if [ -d "$HOME/Library/Python/" ] ; then
+    for FOLDER in `ls -F $HOME/Library/Python/ | grep "\/" `; do
+      PATH="$HOME/Library/Python/${FOLDER%/}/bin/:$PATH"
+    done
+fi
 
 # include .bashrc-includes/ if it exists
 if [ -d "$HOME/.bashrc-includes/" ]; then
